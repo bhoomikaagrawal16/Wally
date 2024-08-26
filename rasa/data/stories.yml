@@ -1,0 +1,102 @@
+version: "3.1"
+
+stories:
+  - story: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: Farewell the user
+    steps:
+      - intent: farewell
+      - action: utter_farewell
+
+  - story: Inquire about order status
+    steps:
+      - intent: inquire_order_status
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "12345"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_fetch_order_status
+
+  - story: Cancel an order
+    steps:
+      - intent: cancel_order
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "54321"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_cancel_order
+
+  - story: Return an order
+    steps:
+      - intent: return_order
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "98765"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_return_order
+
+  - story: Inquire about product availability
+    steps:
+      - intent: inquire_product_availability
+      - action: utter_ask_product_id
+      - slot_was_set:
+          - product_id: "PS5"
+      - action: action_fetch_product_availability
+
+  - story: Inquire about product price
+    steps:
+      - intent: inquire_product_price
+      - action: utter_ask_product_id
+      - slot_was_set:
+          - product_id: "Samsung Galaxy S22"
+      - action: action_fetch_product_price
+
+  - story: Inquire store location
+    steps:
+      - intent: inquire_store_location
+      - action: action_fetch_store_location
+
+  - story: Inquire store hours
+    steps:
+      - intent: inquire_store_hours
+      - action: action_fetch_store_hours
+
+  - story: Inquire return policy
+    steps:
+      - intent: inquire_return_policy
+      - action: action_fetch_return_policy
+
+  - story: Inquire refund status
+    steps:
+      - intent: inquire_refund_status
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "54321"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_fetch_refund_status
+
+  - story: Update account details
+    steps:
+      - intent: update_account_details
+      - action: action_update_account_details
+
+  - story: Reset password
+    steps:
+      - intent: reset_password
+      - action: action_reset_password
+
+  - story: Inquire contact information
+    steps:
+      - intent: inquire_contact_info
+      - action: action_fetch_contact_info

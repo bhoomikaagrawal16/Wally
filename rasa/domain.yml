@@ -1,0 +1,84 @@
+version: "3.1"
+
+intents:
+  - greet
+  - farewell
+  - inquire_order_status
+  - cancel_order
+  - return_order
+  - inquire_product_availability
+  - inquire_product_price
+  - inquire_store_location
+  - inquire_store_hours
+  - update_account_details
+  - reset_password
+  - inquire_return_policy
+  - inquire_refund_status
+  - inquire_contact_info
+
+entities:
+  - order_id
+  - user_id
+  - product_id
+
+slots:
+  order_id:
+    type: text
+    mappings:
+      - type: from_text
+  user_id:
+    type: text
+    mappings:
+      - type: from_text
+  product_id:
+    type: text
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_farewell:
+    - text: "Goodbye! Have a great day."
+  utter_ask_order_id:
+    - text: "Can you please provide your order ID?"
+  utter_ask_user_id:
+    - text: "Please provide your user ID to proceed."
+  utter_ask_product_id:
+    - text: "Can you specify the product ID you are asking about?"
+  utter_order_status:
+    - text: "Your order {order_id} is currently {order_status} and is expected to be delivered by {delivery_date}."
+  utter_order_cancelled:
+    - text: "Your order {order_id} has been successfully cancelled."
+  utter_product_availability:
+    - text: "The product {product_id} is {availability}."
+  utter_product_price:
+    - text: "The price for product {product_id} is {price}."
+  utter_store_location:
+    - text: "The nearest store is located at {store_address}."
+  utter_store_hours:
+    - text: "The store hours for today are {store_hours}."
+  utter_return_policy:
+    - text: "Our return policy is: {return_policy}."
+  utter_refund_status:
+    - text: "The refund for order {order_id} is currently {refund_status}."
+  utter_contact_info:
+    - text: "You can contact us at {contact_info}."
+
+actions:
+  - action_fetch_order_status
+  - action_cancel_order
+  - action_return_order
+  - action_fetch_product_availability
+  - action_fetch_product_price
+  - action_fetch_store_location
+  - action_fetch_store_hours
+  - action_fetch_refund_status
+  - action_update_account_details
+  - action_reset_password
+  - action_fetch_contact_info
+  - action_fetch_return_policy
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

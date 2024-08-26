@@ -1,0 +1,39 @@
+version: "3.1"
+
+rules:
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Farewell the user
+    steps:
+      - intent: farewell
+      - action: utter_farewell
+
+  - rule: Handle order status inquiry
+    steps:
+      - intent: inquire_order_status
+      - action: utter_ask_order_id
+      - action: utter_ask_user_id
+      - action: action_fetch_order_status
+
+  - rule: Handle order cancellation
+    steps:
+      - intent: cancel_order
+      - action: utter_ask_order_id
+      - action: utter_ask_user_id
+      - action: action_cancel_order
+
+  - rule: Handle product availability inquiry
+    steps:
+      - intent: inquire_product_availability
+      - action: utter_ask_product_id
+      - action: action_fetch_product_availability
+
+  - rule: Handle refund status inquiry
+    steps:
+      - intent: inquire_refund_status
+      - action: utter_ask_order_id
+      - action: utter_ask_user_id
+      - action: action_fetch_refund_status

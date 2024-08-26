@@ -1,0 +1,47 @@
+version: "3.1"
+
+test_stories:
+  - story: Test order status inquiry
+    steps:
+      - intent: inquire_order_status
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "12345"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_fetch_order_status
+      - action: utter_order_status
+
+  - story: Test order cancellation
+    steps:
+      - intent: cancel_order
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "54321"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_cancel_order
+      - action: utter_order_cancelled
+
+  - story: Test product availability
+    steps:
+      - intent: inquire_product_availability
+      - action: utter_ask_product_id
+      - slot_was_set:
+          - product_id: "PS5"
+      - action: action_fetch_product_availability
+      - action: utter_product_availability
+
+  - story: Test refund status
+    steps:
+      - intent: inquire_refund_status
+      - action: utter_ask_order_id
+      - slot_was_set:
+          - order_id: "54321"
+      - action: utter_ask_user_id
+      - slot_was_set:
+          - user_id: "67890"
+      - action: action_fetch_refund_status
+      - action: utter_refund_status

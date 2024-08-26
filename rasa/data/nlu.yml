@@ -1,0 +1,90 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hello
+      - Hi
+      - Hey there
+      - Good morning
+      - Good evening
+
+  - intent: farewell
+    examples: |
+      - Goodbye
+      - Bye
+      - See you later
+      - Thanks, bye
+
+  - intent: inquire_order_status
+    examples: |
+      - Where is my order?
+      - What's the status of my order?
+      - Can you track my order?
+      - What's happening with order [12345](order_id)?
+
+  - intent: cancel_order
+    examples: |
+      - I want to cancel my order
+      - Can you cancel order [54321](order_id)?
+      - Please cancel my order
+
+  - intent: return_order
+    examples: |
+      - I want to return my order
+      - How can I return order [98765](order_id)?
+      - Please initiate a return for order [11111](order_id)
+
+  - intent: inquire_product_availability
+    examples: |
+      - Is the product [PS5](product_id) available?
+      - Do you have [iPhone 14](product_id) in stock?
+      - Can you check the availability of [98765](product_id)?
+
+  - intent: inquire_product_price
+    examples: |
+      - What's the price of the [PS5](product_id)?
+      - How much does the [Samsung Galaxy S22](product_id) cost?
+      - Can you tell me the price for [98765](product_id)?
+
+  - intent: inquire_store_location
+    examples: |
+      - Where is the nearest store?
+      - Can you tell me the address of the closest store?
+      - Where can I find the nearest Walmart?
+
+  - intent: inquire_store_hours
+    examples: |
+      - What are the store hours today?
+      - When does the store open and close?
+      - What time does the nearest store close?
+
+  - intent: update_account_details
+    examples: |
+      - I need to update my account details
+      - How can I change my account information?
+      - Can you help me update my profile?
+
+  - intent: reset_password
+    examples: |
+      - I forgot my password
+      - Can you help me reset my password?
+      - I need to reset my login credentials
+
+  - intent: inquire_return_policy
+    examples: |
+      - What is your return policy?
+      - Can you tell me about the return policy?
+      - How do I return an item?
+
+  - intent: inquire_refund_status
+    examples: |
+      - What is the status of my refund?
+      - Can you tell me if my refund has been processed?
+      - When will I get my money back for order [54321](order_id)?
+
+  - intent: inquire_contact_info
+    examples: |
+      - What is your contact information?
+      - How can I get in touch with customer support?
+      - Can you provide me with your contact details?
